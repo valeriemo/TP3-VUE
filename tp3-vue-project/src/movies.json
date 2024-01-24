@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "director": "Frank Darabont",
+        "genre": "Crime, Drama",
+        "myRating": 4,
+        "favorite": true
+      },
+      {
+        "id": 4,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "director": "Christopher Nolan",
+        "genre": "Action, Crime, Drama, Thriller",
+        "myRating": 5,
+        "favorite": false
+      },
+      {
+        "title": "La petite sirène",
+        "year": "1996",
+        "director": "Walt Disney",
+        "genre": "Animation, Famille",
+        "myRating": 3,
+        "favorite": true,
+        "id": 5
+      }
+]
