@@ -4,7 +4,6 @@
     :showAdd='showAdd'
     @toggleForm='toggleForm'
     />
-
   <AddMovie
   v-if="showAddMovie && !showUpdateMovie"
   @onAdd="addMovie"
@@ -52,7 +51,7 @@
         </tr>
       </thead>
       <tbody>
-        <Movie v-for="movie in movies"
+        <MovieShow v-for="movie in movies"
           :key="movie.id"
           :movie="movie"
           @onDelete="deleteMovie"
@@ -68,19 +67,25 @@
 
 <script>
 import HeaderHome from '@/components/HeaderHome.vue'
+import AddMovie from '@/components/AddMovie.vue'
+import UpdateMovie from '@/components/UpdateMovie.vue'
+import MovieShow from '@/components/MovieShow.vue'
 
 export default {
   name: 'FilmsView',
   components: {
-    HeaderHome
+    HeaderHome,
+    AddMovie,
+    UpdateMovie,
+    MovieShow
   },
+  props: ['movies'],
   data () {
     return {
       showAdd: false,
       showAddMovie: false,
       showUpdateMovie: false,
-      editMovieData: null,
-      movies: []
+      editMovieData: null
     }
   },
   methods: {
