@@ -20,6 +20,7 @@
                 v-model="movie.year"
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Année"
+                required
             />
         </div>
         <div class="relative z-0 w-full mb-5 group">
@@ -29,6 +30,7 @@
                 v-model="movie.director"
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Directeur"
+                required
             />
         </div>
         <div class="mb-5">
@@ -42,9 +44,10 @@
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 v-model="movie.genre"
                 placeholder="Genre"
+                required
             />
         </div>
-        <button type="submit" @click="submitForm" class="btn-1">Enregistrer</button>
+        <button type="submit" class="btn-1">Enregistrer</button>
     </form>
 </template>
 
@@ -73,7 +76,6 @@ export default {
           this.addInv(this.movie)
         })
         .catch((e) => {
-          console.log(e)
           this.message = e.response.data.message
         })
     }

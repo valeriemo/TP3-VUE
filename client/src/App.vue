@@ -42,7 +42,8 @@ export default {
     },
     addMovie (movie) {
       this.movies.push(movie)
-      console.log('addmovie,app')
+      console.log('Méthode addMovie appelée dans App.vue')
+      console.log(this.showAdd)
     }
   }
 }
