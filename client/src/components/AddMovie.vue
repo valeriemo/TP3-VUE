@@ -66,7 +66,7 @@
                     @change="handleFavoriteChange"
                     />
                 </div>
-                <Button
+                <ButtonMain
                 type="submit"
                 text="Enregistrer"
                 @click="submitForm"
@@ -74,3 +74,52 @@
                 />
             </form>
 </template>
+
+<script>
+import ButtonMain from "./ButtonMain.vue";
+import FavoriteCheckbox from "./FavoriteCheckbox.vue";
+
+export default {
+    name: "AddMovie",
+    components: {
+        ButtonMain,
+        FavoriteCheckbox,
+    },
+    data() {
+        return {
+            title: "",
+            year: "",
+            director: "",
+            selectedOptions: [],
+            isFavorite: false,
+            thisYear: new Date().getFullYear(),
+        };
+    },
+    methods: {
+        handleSelectChange(event) {
+            this.selectedOptions = Array.from(
+                event.target.selectedOptions,
+                (option) => option.value
+            );
+        },
+        handleFavoriteChange(event) {
+            this.isFavorite = event.target.checked;
+        },
+        submitForm() {
+            const newMovie = {
+                title: this.title,
+                year: this.year,
+                director: this.director,
+                genre: this.selectedOptions,
+                isFavorite: this.isFavorite,
+            };
+            this.$emit("add-movie", newMovie);
+            this.title = "";
+            this.year = "";
+            this.director = "";
+            this.selectedOptions = [];
+            this.isFavorite = false;
+        },
+    },
+};
+</script>

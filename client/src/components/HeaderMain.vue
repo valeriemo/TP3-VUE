@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'HeaderHome',
+  name: 'HeaderMain',
   data () {
     return {
       isFilmsPage: window.location.pathname === '/films'

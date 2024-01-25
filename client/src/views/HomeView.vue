@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HeaderHome
+    <HeaderMain
     :showAdd='showAdd'
     @toggleForm='toggleForm'
     />
@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import HeaderHome from '@/components/HeaderHome.vue'
+import HeaderMain from '@/components/HeaderMain.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HeaderHome
+    HeaderMain
   },
   data () {
     return {

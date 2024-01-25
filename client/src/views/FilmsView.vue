@@ -1,6 +1,6 @@
 <template>
   <main className="flex-1">
-    <HeaderHome
+    <HeaderMain
     :showAdd='showAdd'
     @toggleForm='toggleForm'
     />
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import HeaderHome from '@/components/HeaderHome.vue'
+import HeaderMain from '@/components/HeaderMain.vue'
 import AddMovie from '@/components/AddMovie.vue'
 import UpdateMovie from '@/components/UpdateMovie.vue'
 import MovieShow from '@/components/MovieShow.vue'
@@ -72,7 +72,7 @@ import MovieShow from '@/components/MovieShow.vue'
 export default {
   name: 'FilmsView',
   components: {
-    HeaderHome,
+    HeaderMain,
     AddMovie,
     UpdateMovie,
     MovieShow
