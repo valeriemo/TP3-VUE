@@ -1,6 +1,7 @@
+const movie = require('../controller/movie.controller.js')
+const router = require('express').Router()
+
 module.exports = app => {
-    const movie = require('../controller/movie.controller.js')
-    const router = require('express').Router()
     router.get('/', movie.findAll)
     router.post('/', movie.create)
     router.get('/:id', movie.findOne)

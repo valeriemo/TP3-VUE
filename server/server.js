@@ -12,10 +12,12 @@ const db = require('./app/model')
 db.connex.sync()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended:true }))
+
 //test
-app.get('/', (req, res) => {
- res.json({message: 'Welcome'})
-})
+// app.get('/', (req, res) => {
+//  res.json({message: 'Welcome'})
+// })
+
 //route
 require('./app/route/movie.route')(app)
 const PORT = process.env.PORT || 5000               //port server

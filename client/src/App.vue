@@ -13,7 +13,7 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import FooterMain from '@/components/FooterMain.vue'
-import movies from '@/assets/movies.json'
+import MovieDataService from '@/services/MovieDataService.js'
 
 export default {
   name: 'App',
@@ -21,13 +21,22 @@ export default {
     NavBar,
     FooterMain
   },
+  mounted () {
+    MovieDataService.getAll()
+      .then(response => {
+        this.movies = response.data
+      })
+      .catch(error => {
+        console.log('Erreur de fetching des données:', error.response)
+      })
+  },
   data () {
     return {
-      movies: movies
+      movies: []
     }
   },
   methods: {
-    addMovie(newMovie) {
+    addMovie (newMovie) {
       // Logique pour ajouter un nouveau film dans la liste
       this.movies.push(newMovie)
     },
@@ -44,11 +53,8 @@ export default {
       }
     },
     editMovie (movie) {
-      const index = this.movies.findIndex(movie => movie.id === updatedMovie.id)
-      if (index !== -1) {
-        this.movies.splice(index, 1, updatedMovie)
-      }
     }
   }
 }
+
 </script>

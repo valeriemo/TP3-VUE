@@ -98,22 +98,10 @@ export default {
       this.editMovieData = movie
     },
     onUpdate (updatedMovie) {
-      // Logique pour mettre à jour un film dans la liste
-      const index = this.movies.findIndex(movie => movie.id === updatedMovie.id)
-      if (index !== -1) {
-        this.movies.splice(index, 1, updatedMovie)
-      }
-      this.showUpdateMovie = false
-      this.editMovieData = null
     },
     deleteMovie (movieId) {
-      // Logique pour supprimer un film de la liste
-      this.$emit('deleteMovie', movieId)
-      // Vous devrez peut-être émettre un événement vers le composant parent si `movies` est une propriété du composant parent
     },
     editMovie (movie) {
-      // Logique pour éditer un film
-      this.toggleUpdateMovie(movie)
     }
   }
 }
