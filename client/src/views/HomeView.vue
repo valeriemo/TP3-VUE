@@ -2,7 +2,7 @@
   <div class="home">
     <HeaderMain
     :showAdd='showAdd'
-    @toggleForm='toggleForm'
+    :toggleForm='toggleForm'
     />
     <section className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
       <h2 className="mb-10 text-6xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -32,6 +32,7 @@ import HeaderMain from '@/components/HeaderMain.vue'
 
 export default {
   name: 'HomeView',
+  props: ['showAdd', 'toggleForm'],
   components: {
     HeaderMain
   },
@@ -40,10 +41,6 @@ export default {
       showAdd: false
     }
   },
-  methods: {
-    toggleForm () {
-      this.showAdd = !this.showAdd
-    }
-  }
+
 }
 </script>

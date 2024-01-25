@@ -2,10 +2,8 @@
   <NavMain />
   <RouterView
     :movies="movies"
-    @addMovie="addMovie"
-    @onDelete="deleteMovie"
-    @onToggle="toggleFavorite"
-    @onEdit="editMovie"
+    :toggleForm="toggleMovieForm"
+    :showAdd="showAdd"
   />
   <FooterMain />
 </template>
@@ -32,28 +30,14 @@ export default {
   },
   data () {
     return {
-      movies: []
+      movies: [],
+      showAdd: false
     }
   },
   methods: {
-    addMovie (newMovie) {
-      // Logique pour ajouter un nouveau film dans la liste
-      this.movies.push(newMovie)
+    toggleMovieForm () {
+      this.showAdd = !this.showAdd
     },
-    deleteMovie (movieId) {
-      // Logique de suppression du film avec l'ID movieId
-      console.log(`Supprimer le film avec l'ID ${movieId}`)
-      this.movies = this.movies.filter(movie => movie.id !== movieId)
-    },
-    toggleFavorite (movieId) {
-      // Logique pour basculer l'état "favori" d'un film
-      const index = this.movies.findIndex(movie => movie.id === movieId)
-      if (index !== -1) {
-        this.movies[index].favorite = !this.movies[index].favorite
-      }
-    },
-    editMovie (movie) {
-    }
   }
 }
 

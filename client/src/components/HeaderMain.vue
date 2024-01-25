@@ -18,13 +18,6 @@ export default {
       isFilmsPage: window.location.pathname === '/films'
     }
   },
-  props: {
-    showAdd: Boolean
-  },
-  methods: {
-    toggleForm () {
-      this.$emit('toggleForm')
-    }
-  }
+  props: ['showAdd', 'toggleForm'],
 }
 </script>

@@ -2,20 +2,16 @@
   <main className="flex-1">
     <HeaderMain
     :showAdd='showAdd'
-    @toggleForm='toggleForm'
+    :toggleForm='toggleForm'
     />
-  <AddMovie
-  v-if="showAddMovie && !showUpdateMovie"
-  @onAdd="addMovie"
-  @setShowAddMovie="toggleAddMovie"
-  />
-
-  <UpdateMovie
-  v-if="showUpdateMovie && !showAddMovie" :movieData="editMovieData"
-  @setShowUpdateMovie="toggleUpdateMovie"
-  @onUpdate="onUpdate"
-  />
-
+    <AddMovie
+    v-if="showAdd"
+    />
+    <UpdateMovie
+    v-if="showUpdateMovie && !showAddMovie" :movieData="editMovieData"
+    :setShowUpdateMovie="toggleUpdateMovie"
+    :onUpdate="onUpdate"
+    />
   <section className="my-6">
     <h2 className="text-2xl font-bold text-white mt-5 mb-5 text-center">
       Vos films
@@ -52,9 +48,8 @@
           v-for="movie in movies"
           :key="movie.id"
           :movie="movie"
-          @onDelete="deleteMovie"
-          @onToggle="toggleFavorite"
-          @onEdit="editMovie"
+          :deleteMovie="movieDelete"
+          :toggleForm="toggleForm"
           />
       </tbody>
   </table>
@@ -77,32 +72,11 @@ export default {
     UpdateMovie,
     MovieShow
   },
-  props: ['movies'],
-  data () {
-    return {
-      showAdd: false,
-      showAddMovie: false,
-      showUpdateMovie: false,
-      editMovieData: null
-    }
-  },
+  props: ['movies', 'toggleForm', 'showAdd'],
   methods: {
-    toggleForm () {
-      this.showAdd = !this.showAdd
+    movieDelete (movieId) {
+
     },
-    toggleAddMovie () {
-      this.showAddMovie = !this.showAddMovie
-    },
-    toggleUpdateMovie (movie) {
-      this.showUpdateMovie = !this.showUpdateMovie
-      this.editMovieData = movie
-    },
-    onUpdate (updatedMovie) {
-    },
-    deleteMovie (movieId) {
-    },
-    editMovie (movie) {
-    }
   }
 }
 </script>
