@@ -4,6 +4,7 @@
     :movies="movies"
     :toggleForm="toggleMovieForm"
     :showAdd="showAdd"
+    :addInv="addMovie"
   />
   <FooterMain />
 </template>
@@ -35,8 +36,12 @@ export default {
     }
   },
   methods: {
-    toggleMovieForm () {
+    toggleMovieForm (movie) {
       this.showAdd = !this.showAdd
+      console.log('toggleMovieForm', movie)
+    },
+    addMovie (movie) {
+      this.movies.push(movie)
     },
   }
 }

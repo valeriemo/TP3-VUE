@@ -1,19 +1,15 @@
 <template>
-  <tr className="border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
-    <th scope="row" className="px-6 py-4 font-bold text-gray-900 whitespace-nowrap dark:text-white">
+  <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
+    <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap dark:text-white">
     {{ movie.title }}</th>
     <td class="px-6 py-4">{{ movie.year }}</td>
     <td class="px-6 py-4">{{ movie.director }}</td>
     <td class="px-6 py-4">{{ movie.genre }}</td>
-    <td class="px-6 py-4">
-        <span v-if="isFavorite" class="text-[#e9295c] text-xl cursor-pointer">❤️</span>
-        <span v-else class="cursor-pointer">🤍</span>
-    </td>
     <td class="px-6 py-4 text-right">
         <span @click="deleteMovie" class="cursor-pointer text-xl hover:text-[#ff7900]">❌</span>
     </td>
     <td class="px-6 py-4 text-right">
-        <span @click="toggleForm()" class="cursor-pointer text-xl hover:text-[#BAFF29]">✏️</span>
+        <span @click="toggleForm(movie)" class="cursor-pointer text-xl hover:text-[#BAFF29]">✏️</span>
     </td>
   </tr>
 </template>
