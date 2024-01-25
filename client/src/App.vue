@@ -29,6 +29,7 @@ export default {
         console.log('Erreur de fetching des données:', error.response)
       })
   },
+  props: ['addInv', 'toggleForm'],
   data () {
     return {
       movies: [],
@@ -38,11 +39,11 @@ export default {
   methods: {
     toggleMovieForm (movie) {
       this.showAdd = !this.showAdd
-      console.log('toggleMovieForm', movie)
     },
     addMovie (movie) {
       this.movies.push(movie)
-    },
+      console.log('addmovie,app')
+    }
   }
 }
 

@@ -6,16 +6,16 @@
     <td class="px-6 py-4">{{ movie.director }}</td>
     <td class="px-6 py-4">{{ movie.genre }}</td>
     <td class="px-6 py-4 text-right">
-        <span @click="deleteMovie" class="cursor-pointer text-xl hover:text-[#ff7900]">❌</span>
+        <span @click="deleteMovie" class="cursor-pointer text-xl">❌</span>
     </td>
     <td class="px-6 py-4 text-right">
-        <span @click="toggleForm(movie)" class="cursor-pointer text-xl hover:text-[#BAFF29]">✏️</span>
+        <span @click="toggleForm(movie)" class="cursor-pointer text-xl">✏️</span>
     </td>
   </tr>
 </template>
 
 <script>
 export default {
-  props: ['movie', 'deleteMovie', 'toggleForm'],
+  props: ['movie', 'deleteMovie', 'toggleForm']
 }
 </script>

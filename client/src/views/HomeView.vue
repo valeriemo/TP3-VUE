@@ -35,12 +35,6 @@ export default {
   props: ['showAdd', 'toggleForm'],
   components: {
     HeaderMain
-  },
-  data () {
-    return {
-      showAdd: false
-    }
-  },
-
+  }
 }
 </script>

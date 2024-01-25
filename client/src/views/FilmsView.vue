@@ -8,11 +8,6 @@
     v-if="showAdd"
     :addInv="addInv"
     />
-    <UpdateMovie
-    v-if="showUpdateMovie && !showAddMovie" :movieData="editMovieData"
-    :setShowUpdateMovie="toggleUpdateMovie"
-    :onUpdate="onUpdate"
-    />
   <section class="my-6">
     <h2 class="text-2xl font-bold text-white mt-5 mb-5 text-center">
       Vos films
@@ -59,7 +54,6 @@
 <script>
 import HeaderMain from '@/components/HeaderMain.vue'
 import AddMovie from '@/components/AddMovie.vue'
-import UpdateMovie from '@/components/UpdateMovie.vue'
 import MovieShow from '@/components/MovieShow.vue'
 
 export default {
@@ -67,14 +61,12 @@ export default {
   components: {
     HeaderMain,
     AddMovie,
-    UpdateMovie,
     MovieShow
   },
-  props: ['movies', 'toggleForm', 'showAdd'],
+  props: ['movies', 'toggleForm', 'showAdd', 'addInv'],
   methods: {
     movieDelete (movieId) {
-
-    },
+    }
   }
 }
 </script>

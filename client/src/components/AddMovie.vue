@@ -20,8 +20,6 @@
                 v-model="movie.year"
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Année"
-                :max='thisYear'
-
             />
         </div>
         <div class="relative z-0 w-full mb-5 group">
@@ -46,19 +44,15 @@
                 placeholder="Genre"
             />
         </div>
-        <Button type="submit" @click="submitForm" class="btn-1">Enregistrer</Button>
+        <button type="submit" @click="submitForm" class="btn-1">Enregistrer</button>
     </form>
 </template>
 
 <script>
-import FavoriteCheckbox from './FavoriteCheckbox.vue'
 import MovieDataService from '@/services/MovieDataService'
 
 export default {
   name: 'AddMovie',
-  components: {
-    FavoriteCheckbox
-  },
   props: ['addInv'],
   data () {
     return {
