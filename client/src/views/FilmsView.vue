@@ -37,9 +37,6 @@
               Genre
           </th>
           <th scope="col" className="px-6 py-3">
-              Rating
-          </th>
-          <th scope="col" className="px-6 py-3">
               Coup de coeur
           </th>
           <th scope="col" className="px-6 py-3">
@@ -51,7 +48,8 @@
         </tr>
       </thead>
       <tbody>
-        <MovieShow v-for="movie in movies"
+        <MovieShow
+          v-for="movie in movies"
           :key="movie.id"
           :movie="movie"
           @onDelete="deleteMovie"
@@ -91,6 +89,31 @@ export default {
   methods: {
     toggleForm () {
       this.showAdd = !this.showAdd
+    },
+    toggleAddMovie () {
+      this.showAddMovie = !this.showAddMovie
+    },
+    toggleUpdateMovie (movie) {
+      this.showUpdateMovie = !this.showUpdateMovie
+      this.editMovieData = movie
+    },
+    onUpdate (updatedMovie) {
+      // Logique pour mettre à jour un film dans la liste
+      const index = this.movies.findIndex(movie => movie.id === updatedMovie.id)
+      if (index !== -1) {
+        this.movies.splice(index, 1, updatedMovie)
+      }
+      this.showUpdateMovie = false
+      this.editMovieData = null
+    },
+    deleteMovie (movieId) {
+      // Logique pour supprimer un film de la liste
+      this.$emit('deleteMovie', movieId)
+      // Vous devrez peut-être émettre un événement vers le composant parent si `movies` est une propriété du composant parent
+    },
+    editMovie (movie) {
+      // Logique pour éditer un film
+      this.toggleUpdateMovie(movie)
     }
   }
 }

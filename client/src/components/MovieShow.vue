@@ -26,6 +26,7 @@ export default {
       this.onDelete(this.movie.id)
     },
     toggleFavorite () {
+      console.log('toggleFavorite')
       this.onToggle(this.movie.id)
     },
     editMovie () {
