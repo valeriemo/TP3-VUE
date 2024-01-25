@@ -1,4 +1,4 @@
-const movie = require('../controller/movie.controller.js')
+const movie = require('../controller/movie.controller');
 const router = require('express').Router()
 
 module.exports = app => {

@@ -16,6 +16,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
+    console.log(db.movies)
     Movie.findAll()
         .then((data) => {
             res.send(data);

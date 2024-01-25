@@ -9,5 +9,8 @@ const connex = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 const db = {}
 db.Sequelize = Sequelize
 db.connex = connex
-db.products = require('./movie.model.js')(connex, Sequelize)
+
+db.movies = require('./movie.model.js')(connex, Sequelize)
+
 module.exports = db
+
