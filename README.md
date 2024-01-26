@@ -5,6 +5,7 @@ Tp 3 vue.js | Programmation web avancée
 ## Table des Matières
 - [Caractéristiques du Projet](#caractéristiques-du-projet)
 - [Mise en Place](#mise-en-place)
+- [Vidéo](#vidéo)
 
 ## Caractéristiques du Projet
 
@@ -31,5 +32,12 @@ Tp 3 vue.js | Programmation web avancée
 - **Base de Données MySQL :** Utilisation d'une base de données MySQL nommée "bd_movies" pour stocker les informations des films.
 
 - **Publication sur GitHub :** Le projet est publié sur GitHub avec une documentation au format PDF incluant le lien GitHub et des instructions d'installation.
+
+##Vidéo
+
+
+https://github.com/valeriemo/TP3-VUE/assets/7307498/78b68184-e793-4037-be4a-c972e5e83ac5
+
+
 
 
