@@ -47,31 +47,53 @@
                 v-model="movie.genre"
             />
         </div>
-        <button type="submit" @click="updateMovie" class="btn-1">Enregistrer</button>
+        <button type="submit" @click.prevent="updateMovie" class="btn-1">Enregistrer</button>
     </form>
+    <router-link :to="{ name: 'films' }" class="btn-1 cursor-pointer text-xl">Annuler la modification</router-link>
 </template>
 
 <script>
 import MovieDataService from '@/services/MovieDataService'
 
 export default {
-  props: [],
+  props: ['updateInv', 'movies'],
   data () {
     return {
-      id: parseInt(this.$route.params.id),
+      id: this.$route.params.id,
       movie: {}
     }
   },
   methods: {
     updateMovie () {
-      console.log('Méthode updateMovie appelée dans UpdateMovie.vue')
+      console.log('je suis dans le updateMovie de UpdateMovie')
+      MovieDataService.update(this.id, this.movie)
+        .then(response => {
+          console.log('je suis dans le then de updateMovie')
+          this.updateInv(this.movieIndex, this.movie)
+        })
+        .catch(e => {
+          this.message = e.response.data.message
+        })
+    }
+  },
+  computed: {
+    movieIndex () {
+      const index = this.movies.findIndex((movie) => {
+        return movie.id === this.id
+      })
+      return index
     }
   },
   mounted () {
+    console.log('je suis dans le mounted de UpdateMovie')
+    console.log(this.id)
     MovieDataService.get(this.id)
       .then(response => {
         this.movie = response.data
-        console.log(response.data)
+        console.log(this.movie)
+      })
+      .catch(e => {
+        console.log(e)
       })
   }
 }

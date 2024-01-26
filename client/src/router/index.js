@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FilmsView from '../views/FilmsView.vue'
+import UpdateView from '../views/UpdateView.vue'
 const routes = [
   {
     path: '/',
@@ -15,7 +16,7 @@ const routes = [
   {
     path: '/film-edit/:id',
     name: 'film-edit',
-    component: FilmsView
+    component: UpdateView
   }
 ]
 

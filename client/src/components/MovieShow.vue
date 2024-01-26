@@ -9,7 +9,7 @@
         <span @click="deleteMovie" class="cursor-pointer text-xl">❌</span>
     </td>
     <td class="px-6 py-4 text-right">
-      <router-link @click="toggleUpdateForm()" :to="{ name: 'film-edit', params: { id: movie.id } }" class="cursor-pointer text-xl">✏️</router-link>
+      <router-link :to="{ name: 'film-edit', params: { id: movie.id } }" class="cursor-pointer text-xl">✏️</router-link>
     </td>
   </tr>
 </template>
@@ -17,7 +17,7 @@
 <script>
 import movieDataService from '@/services/MovieDataService.js'
 export default {
-  props: ['movie', 'toggleUpdateForm', 'remove'],
+  props: ['movie', 'remove'],
   methods: {
     deleteMovie () {
       console.log(this.movie.id)

@@ -6,8 +6,7 @@
     :showAdd="showAdd"
     :addInv="addMovie"
     :remove="removeMovie"
-    :toggleUpdateForm="toggleUpdate"
-    :showUpdate="showUpdate"
+    :updateInv="updateMovie"
   />
   <FooterMain />
 </template>
@@ -32,21 +31,16 @@ export default {
         console.log('Erreur de fetching des données:', error.response)
       })
   },
-  props: ['addInv', 'toggleForm', 'toggleUpdateForm', 'remove'],
+  props: ['addInv', 'toggleForm', 'remove'],
   data () {
     return {
       movies: [],
-      showAdd: false,
-      showUpdate: false
+      showAdd: false
     }
   },
   methods: {
     toggleMovieForm () {
-      if (this.showUpdate === true) {
-        this.showUpdate = false
-      } else {
-        this.showAdd = !this.showAdd
-      }
+      this.showAdd = !this.showAdd
     },
     addMovie (movie) {
       this.movies.push(movie)
@@ -56,9 +50,13 @@ export default {
     removeMovie (movieId) {
       this.movies = this.movies.filter(movie => movie.id !== movieId)
     },
-    toggleUpdate () {
-      console.log('toggleUpdate appelée dans App.vue')
-      this.showUpdate = !this.showUpdate
+    updateMovie (index, movie) {
+      this.movies[index].title = movie.title
+      this.movies[index].year = movie.year
+      this.movies[index].director = movie.director
+      this.movies[index].genre = movie.genre
+      console.log('updateMovie appelée dans App.vue')
+      this.$router.push({ name: 'films' })
     }
   }
 }

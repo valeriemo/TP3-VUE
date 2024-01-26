@@ -9,9 +9,6 @@
     v-if="showAdd"
     :addInv="addInv"
     />
-    <UpdateMovie
-    v-if="showUpdate"
-    />
   <section class="my-6">
     <h2 class="text-2xl font-bold text-white mt-5 mb-5 text-center">
       Vos films
@@ -45,7 +42,6 @@
           v-for="movie in movies"
           :key="movie.id"
           :movie="movie"
-          :toggleUpdateForm="toggleUpdateForm"
           :remove="remove"
           />
       </tbody>
@@ -59,16 +55,14 @@
 import HeaderMain from '@/components/HeaderMain.vue'
 import AddMovie from '@/components/AddMovie.vue'
 import MovieShow from '@/components/MovieShow.vue'
-import UpdateMovie from '@/components/UpdateMovie.vue'
 
 export default {
   name: 'FilmsView',
   components: {
     HeaderMain,
     AddMovie,
-    MovieShow,
-    UpdateMovie
+    MovieShow
   },
-  props: ['movies', 'toggleUpdateForm', 'showAdd', 'addInv', 'remove', 'toggleForm', 'showUpdate']
+  props: ['movies', 'showAdd', 'addInv', 'remove', 'toggleForm']
 }
 </script>
