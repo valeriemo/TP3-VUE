@@ -1,13 +1,12 @@
 <template>
   <div class="max-w-md mx-auto">
-    <h1 class="uppercase text-lg text-center text-white font-semibold bg-[#5889c1] p-4 w-full rounded-md mb-5">Film</h1>
+    <h1 class="uppercase text-lg text-center text-white font-semibold bg-[#5889c1] p-4 w-full rounded-md mb-5">{{ movie.title }}</h1>
     <img
-      :src="movie ? movie.poster : ''"
+      :src="movie.img ? movie.img : ''"
       alt="Affiche du film"
-      class="w-full h-48 object-cover object-center"
+      class="w-full h-full object-cover object-center"
     />
     <div class="p-6" v-if="movie">
-      <h2 class="text-xl font-semibold text-gray-200 mb-2">{{ movie.title }}</h2>
       <p class="text-gray-300 mb-2">Année: {{ movie.year }}</p>
       <p class="text-gray-300 mb-4">Directeur: {{ movie.director }}</p>
     </div>
@@ -21,7 +20,6 @@ export default {
   props: ['movies'],
   computed: {
     movie () {
-      console.log(this.$route.params.id)
       const movie = this.movies.find((movie) => {
         return movie.id === Number(this.$route.params.id)
       })

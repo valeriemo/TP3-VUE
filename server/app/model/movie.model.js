@@ -11,6 +11,9 @@ module.exports = (connex, Sequelize) => {
     },
     genre: {
     type: Sequelize.TEXT
+    },
+    img: {
+    type: Sequelize.STRING
     }
     })
     return Movie

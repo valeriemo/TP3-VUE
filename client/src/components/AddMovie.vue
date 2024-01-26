@@ -47,6 +47,20 @@
                 required
             />
         </div>
+        <div class="mb-5">
+            <label
+                For="img"
+                class="text-sm font-medium text-gray-300"
+            >Img: <span>Copier le lien de l'image</span></label>
+            <input
+                id="img"
+                name="img"
+                class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
+                v-model="movie.img"
+                placeholder="Image lien"
+                required
+            />
+        </div>
         <button type="submit" class="btn-1">Enregistrer</button>
     </form>
 </template>
@@ -63,7 +77,8 @@ export default {
         title: '',
         year: '',
         director: '',
-        genre: []
+        genre: [],
+        img: ''
       }
     }
   },
