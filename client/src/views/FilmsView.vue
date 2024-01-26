@@ -3,10 +3,14 @@
     <HeaderMain
     :showAdd='showAdd'
     :toggleForm='toggleForm'
+    :showUpdate='showUpdate'
     />
     <AddMovie
     v-if="showAdd"
     :addInv="addInv"
+    />
+    <UpdateMovie
+    v-if="showUpdate"
     />
   <section class="my-6">
     <h2 class="text-2xl font-bold text-white mt-5 mb-5 text-center">
@@ -41,8 +45,8 @@
           v-for="movie in movies"
           :key="movie.id"
           :movie="movie"
-          :deleteMovie="movieDelete"
-          :toggleForm="toggleForm"
+          :toggleUpdateForm="toggleUpdateForm"
+          :remove="remove"
           />
       </tbody>
   </table>
@@ -55,18 +59,16 @@
 import HeaderMain from '@/components/HeaderMain.vue'
 import AddMovie from '@/components/AddMovie.vue'
 import MovieShow from '@/components/MovieShow.vue'
+import UpdateMovie from '@/components/UpdateMovie.vue'
 
 export default {
   name: 'FilmsView',
   components: {
     HeaderMain,
     AddMovie,
-    MovieShow
+    MovieShow,
+    UpdateMovie
   },
-  props: ['movies', 'toggleForm', 'showAdd', 'addInv'],
-  methods: {
-    movieDelete (movieId) {
-    }
-  }
+  props: ['movies', 'toggleUpdateForm', 'showAdd', 'addInv', 'remove', 'toggleForm', 'showUpdate']
 }
 </script>

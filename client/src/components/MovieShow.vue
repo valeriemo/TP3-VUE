@@ -9,13 +9,26 @@
         <span @click="deleteMovie" class="cursor-pointer text-xl">❌</span>
     </td>
     <td class="px-6 py-4 text-right">
-        <span @click="toggleForm(movie)" class="cursor-pointer text-xl">✏️</span>
+        <span @click="toggleUpdateForm()" class="cursor-pointer text-xl">✏️</span>
     </td>
   </tr>
 </template>
 
 <script>
+import movieDataService from '@/services/MovieDataService.js'
 export default {
-  props: ['movie', 'deleteMovie', 'toggleForm']
+  props: ['movie', 'toggleUpdateForm', 'remove'],
+  methods: {
+    deleteMovie () {
+      console.log(this.movie.id)
+      movieDataService.delete(this.movie.id)
+        .then(response => {
+          this.remove(this.movie.id)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    }
+  }
 }
 </script>

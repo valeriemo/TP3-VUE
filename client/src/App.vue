@@ -5,6 +5,9 @@
     :toggleForm="toggleMovieForm"
     :showAdd="showAdd"
     :addInv="addMovie"
+    :remove="removeMovie"
+    :toggleUpdateForm="toggleUpdate"
+    :showUpdate="showUpdate"
   />
   <FooterMain />
 </template>
@@ -29,21 +32,33 @@ export default {
         console.log('Erreur de fetching des données:', error.response)
       })
   },
-  props: ['addInv', 'toggleForm'],
+  props: ['addInv', 'toggleForm', 'toggleUpdateForm', 'remove'],
   data () {
     return {
       movies: [],
-      showAdd: false
+      showAdd: false,
+      showUpdate: false
     }
   },
   methods: {
-    toggleMovieForm (movie) {
-      this.showAdd = !this.showAdd
+    toggleMovieForm () {
+      if (this.showUpdate === true) {
+        this.showUpdate = false
+      } else {
+        this.showAdd = !this.showAdd
+      }
     },
     addMovie (movie) {
       this.movies.push(movie)
       console.log('Méthode addMovie appelée dans App.vue')
-      console.log(this.showAdd)
+      this.toggleMovieForm()
+    },
+    removeMovie (movieId) {
+      this.movies = this.movies.filter(movie => movie.id !== movieId)
+    },
+    toggleUpdate () {
+      console.log('toggleUpdate appelée dans App.vue')
+      this.showUpdate = !this.showUpdate
     }
   }
 }
