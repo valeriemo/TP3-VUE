@@ -21,8 +21,6 @@ export default {
   },
   computed: {
     buttonText () {
-      console.log('showAdd:', this.showAdd)
-      console.log('showUpdate:', this.showUpdate)
       if (this.showAdd || this.showUpdate === true) {
         return 'Fermer'
       } else {

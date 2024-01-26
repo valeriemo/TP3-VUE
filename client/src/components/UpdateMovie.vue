@@ -2,7 +2,7 @@
     <h1 class="uppercase text-lg text-center text-white font-semibold bg-[#5889c1] p-4 w-full rounded-md mb-5">
         Modifier un film
     </h1>
-    <form class="max-w-md mx-auto" @submit.prevent="submitForm">
+    <form class="max-w-md mx-auto">
         <div class="relative z-0 w-full mb-5 group">
             <input
                 type="text"
@@ -10,6 +10,7 @@
                 class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Titre"
                 required
+                v-model="movie.title"
             />
         </div>
         <div class="relative z-0 w-full mb-5 group">
@@ -19,6 +20,7 @@
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Année"
                 required
+                v-model="movie.year"
             />
         </div>
         <div class="relative z-0 w-full mb-5 group">
@@ -28,6 +30,7 @@
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Directeur"
                 required
+                v-model="movie.director"
             />
         </div>
         <div class="mb-5">
@@ -41,15 +44,35 @@
                 class="block py-2.5 px-0 w-full text-white text-sm bg-transparent border-0 border-b-2 border-gray-600 appearance-none  focus:outline-none focus:ring-0 focus:border-[#5889c1] peer"
                 placeholder="Genre"
                 required
+                v-model="movie.genre"
             />
         </div>
-        <button type="submit" class="btn-1">Enregistrer</button>
+        <button type="submit" @click="updateMovie" class="btn-1">Enregistrer</button>
     </form>
 </template>
 
 <script>
+import MovieDataService from '@/services/MovieDataService'
+
 export default {
   props: [],
-  methods: {}
+  data () {
+    return {
+      id: parseInt(this.$route.params.id),
+      movie: {}
+    }
+  },
+  methods: {
+    updateMovie () {
+      console.log('Méthode updateMovie appelée dans UpdateMovie.vue')
+    }
+  },
+  mounted () {
+    MovieDataService.get(this.id)
+      .then(response => {
+        this.movie = response.data
+        console.log(response.data)
+      })
+  }
 }
 </script>
