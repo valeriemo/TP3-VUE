@@ -44,7 +44,6 @@ export default {
     },
     addMovie (movie) {
       this.movies.push(movie)
-      console.log('Méthode addMovie appelée dans App.vue')
       this.toggleMovieForm()
     },
     removeMovie (movieId) {

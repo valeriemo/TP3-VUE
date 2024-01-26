@@ -3,6 +3,7 @@
   :showAdd='showAdd'
   :toggleForm='toggleForm'
   />
+  <section class="bg-gray-800 max-w-md px-10 mt-5 py-5 mx-auto rounded-md">
     <h1 class="uppercase text-lg text-center text-white font-semibold bg-[#5889c1] p-4 w-full rounded-md mb-5">
         Modifier un film
     </h1>
@@ -67,7 +68,8 @@
         </div>
         <button type="submit" @click.prevent="updateMovie" class="btn-1">Enregistrer</button>
     </form>
-    <router-link :to="{ name: 'films' }" class="btn-1 cursor-pointer text-xl">Annuler la modification</router-link>
+    <router-link :to="{ name: 'films' }" class="btn-3 max-content cursor-pointer text-xl">Annuler la modification</router-link>
+  </section>
 </template>
 
 <script>

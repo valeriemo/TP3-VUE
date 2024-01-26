@@ -42,3 +42,8 @@ body {
     translate: 1px 1px;
     fill: #baff29;
 }
+.max-content{
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}

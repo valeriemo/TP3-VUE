@@ -3,7 +3,6 @@ const Movie = db.movies;
 const OP = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    //console.log(req.body)
     Movie.create(req.body)
         .then((data) => {
             res.send(data);
@@ -16,7 +15,6 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    console.log(db.movies)
     Movie.findAll()
         .then((data) => {
             res.send(data);

@@ -5,10 +5,10 @@
     <td class="px-6 py-4">{{ movie.year }}</td>
     <td class="px-6 py-4">{{ movie.director }}</td>
     <td class="px-6 py-4">{{ movie.genre }}</td>
-    <td class="px-6 py-4 text-right">
+    <td class="px-auto py-4 text-center">
         <span @click="deleteMovie" class="cursor-pointer text-xl">❌</span>
     </td>
-    <td class="px-6 py-4 text-right">
+    <td class="px-auto py-4 text-center">
       <router-link :to="{ name: 'film-edit', params: { id: movie.id } }" class="cursor-pointer text-xl">✏️</router-link>
     </td>
   </tr>
@@ -20,7 +20,6 @@ export default {
   props: ['movie', 'remove'],
   methods: {
     deleteMovie () {
-      console.log(this.movie.id)
       movieDataService.delete(this.movie.id)
         .then(response => {
           this.remove(this.movie.id)
