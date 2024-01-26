@@ -6,7 +6,7 @@
     :showAdd="showAdd"
     :addInv="addMovie"
     :remove="removeMovie"
-    :updateInv="updateMovie"
+    :updateInv="movieUpdate"
   />
   <FooterMain />
 </template>
@@ -31,7 +31,7 @@ export default {
         console.log('Erreur de fetching des données:', error.response)
       })
   },
-  props: ['addInv', 'toggleForm', 'remove'],
+  props: ['addInv', 'toggleForm', 'remove', 'updateInv'],
   data () {
     return {
       movies: [],
@@ -50,12 +50,14 @@ export default {
     removeMovie (movieId) {
       this.movies = this.movies.filter(movie => movie.id !== movieId)
     },
-    updateMovie (index, movie) {
-      this.movies[index].title = movie.title
-      this.movies[index].year = movie.year
-      this.movies[index].director = movie.director
-      this.movies[index].genre = movie.genre
-      console.log('updateMovie appelée dans App.vue')
+    movieUpdate (updatedMovie) {
+      this.movies = this.movies.map(movie => {
+        if (movie.id === updatedMovie.id) {
+          return { ...movie, ...updatedMovie }
+        } else {
+          return movie
+        }
+      })
       this.$router.push({ name: 'films' })
     }
   }

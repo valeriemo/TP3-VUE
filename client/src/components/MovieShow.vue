@@ -1,7 +1,7 @@
 <template>
   <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
     <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap dark:text-white">
-    {{ movie.title }}</th>
+      <router-link :to="{ name: 'film-show', params: { id: movie.id } }" class="cursor-pointer text-xl">{{ movie.title }}</router-link></th>
     <td class="px-6 py-4">{{ movie.year }}</td>
     <td class="px-6 py-4">{{ movie.director }}</td>
     <td class="px-6 py-4">{{ movie.genre }}</td>

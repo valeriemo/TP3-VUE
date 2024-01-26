@@ -1,4 +1,8 @@
 <template>
+  <HeaderMain
+  :showAdd='showAdd'
+  :toggleForm='toggleForm'
+  />
     <h1 class="uppercase text-lg text-center text-white font-semibold bg-[#5889c1] p-4 w-full rounded-md mb-5">
         Modifier un film
     </h1>
@@ -54,9 +58,13 @@
 
 <script>
 import MovieDataService from '@/services/MovieDataService'
+import HeaderMain from '@/components/HeaderMain.vue'
 
 export default {
-  props: ['updateInv', 'movies'],
+  props: ['updateInv', 'movies', 'showAdd', 'toggleForm', 'remove', 'addInv'],
+  components: {
+    HeaderMain
+  },
   data () {
     return {
       id: this.$route.params.id,
@@ -65,32 +73,16 @@ export default {
   },
   methods: {
     updateMovie () {
-      console.log('je suis dans le updateMovie de UpdateMovie')
       MovieDataService.update(this.id, this.movie)
         .then(response => {
-          console.log('je suis dans le then de updateMovie')
-          this.updateInv(this.movieIndex, this.movie)
+          this.updateInv(this.movie)
         })
-        .catch(e => {
-          this.message = e.response.data.message
-        })
-    }
-  },
-  computed: {
-    movieIndex () {
-      const index = this.movies.findIndex((movie) => {
-        return movie.id === this.id
-      })
-      return index
     }
   },
   mounted () {
-    console.log('je suis dans le mounted de UpdateMovie')
-    console.log(this.id)
     MovieDataService.get(this.id)
       .then(response => {
         this.movie = response.data
-        console.log(this.movie)
       })
       .catch(e => {
         console.log(e)

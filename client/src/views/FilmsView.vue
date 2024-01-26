@@ -3,7 +3,6 @@
     <HeaderMain
     :showAdd='showAdd'
     :toggleForm='toggleForm'
-    :showUpdate='showUpdate'
     />
     <AddMovie
     v-if="showAdd"
