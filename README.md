@@ -36,6 +36,8 @@ Tp 3 vue.js | Programmation web avancée
 ##Vidéo
 
 
+https://github.com/valeriemo/TP3-VUE/assets/7307498/5033a5a7-796e-42bf-b65c-39410b14d437
+
 
 
 
